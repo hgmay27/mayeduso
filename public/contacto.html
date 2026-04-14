@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | MaykaEduso</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="nav-main">
+            <a href="index.html" class="logo">MayEduso</a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+            <ul id="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="enfoque.html">Enfoque</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="admin.html" class="admin-nav-link">Administración</a></li>
+                <li class="cart-nav-item"><a href="#" id="cart-icon-btn">🛒 <span id="cart-count"
+                            class="badge">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <section class="contacto-section" style="padding: 4rem 2rem; max-width: 800px; margin: 0 auto; text-align: center;">
+            <h1 style="color: var(--primary-color, #ff6b6b); margin-bottom: 2rem;">Ponte en contacto conmigo</h1>
+            <p style="margin-bottom: 2rem; color: #555;">Si tienes alguna duda o quieres agendar una primera toma de contacto, no dudes en escribirme. Te responderé lo antes posible.</p>
+            
+            <div style="background-color: var(--card-bg, #fff); padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <form id="contact-form" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <input type="text" name="nombre" placeholder="Nombre" required pattern="^[A-Za-zÁÉÍÓÚáéíóúñÑüÜ\s]+$"
+                        title="Solo se permiten letras y espacios" style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;">
+                    <input type="text" name="apellidos" placeholder="Apellidos" required
+                        pattern="^[A-Za-zÁÉÍÓÚáéíóúñÑüÜ\s]+$" title="Solo se permiten letras y espacios" style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;">
+                    <input type="email" name="email" placeholder="Correo" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;">
+                    <textarea name="mensaje" placeholder="Tu mensaje..." required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px; min-height: 150px; font-family: inherit; resize: vertical;"></textarea>
+                    <button type="submit" class="btn-primary" style="padding: 1rem; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; width: 100%;">Enviar mensaje</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <h3 style="color: var(--primary-color, #ff6b6b); margin-bottom: 1rem;">MaykaEduso</h3>
+            <p style="color: #666; margin-bottom: 1.5rem;">Acompañamiento integral, terapia socioeducativa y empoderamiento personal. Contigo en cada paso del camino.</p>
+            <div class="footer-links" style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem;">
+                <a href="index.html" style="color: var(--text-color, #333); text-decoration: none; font-weight: bold;">Inicio</a>
+                <a href="servicios.html" style="color: var(--text-color, #333); text-decoration: none; font-weight: bold;">Servicios</a>
+                <a href="contacto.html" style="color: var(--text-color, #333); text-decoration: none; font-weight: bold;">Contacto</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; <span id="current-year"></span> MayEduso. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- Modal del carrito -->
+    <div id="cart-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" id="close-cart">&times;</span>
+            <h2>Tu carrito</h2>
+            <div id="cart-items"></div>
+            <div id="cart-invoice-details" class="cart-invoice-details" style="display: none;">
+                <div class="invoice-row">
+                    <span>Base Imponible:</span>
+                    <span><span id="cart-subtotal">0.00</span>€</span>
+                </div>
+                <div class="invoice-row">
+                    <span>IVA (21%):</span>
+                    <span><span id="cart-iva">0.00</span>€</span>
+                </div>
+            </div>
+            <div class="cart-total-row">
+                <span>Total:</span>
+                <span><span id="cart-total-price">0.00</span>€</span>
+            </div>
+            <button id="checkout-btn" class="btn-primary">Comprar</button>
+        </div>
+    </div>
+
+    <!-- Modal de Checkout -->
+    <div id="checkout-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" id="close-checkout">&times;</span>
+            <h2>Datos del cliente</h2>
+            <form id="checkout-form">
+                <input type="text" id="chk-nombre" placeholder="Nombre" required minlength="2"
+                    pattern="^[A-Za-zÁÉÍÓÚáéíóúñÑüÜ\s]+$" title="Solo se permiten letras y espacios">
+                <input type="text" id="chk-apellidos" placeholder="Apellidos" required minlength="2"
+                    pattern="^[A-Za-zÁÉÍÓÚáéíóúñÑüÜ\s]+$" title="Solo se permiten letras y espacios">
+                <input type="number" id="chk-edad" placeholder="Edad" required min="18" max="100"
+                    title="Debes ser mayor de edad">
+                <input type="email" id="chk-email" placeholder="Correo electrónico" required>
+                <textarea id="chk-comentarios" placeholder="Comentarios adicionales..."></textarea>
+
+                <h3 class="payment-info-title">Información de Pago</h3>
+                <div class="payment-radios-container" id="pago-radios">
+                    <label><input type="radio" name="metodo-pago" value="bizum" checked> Bizum</label>
+                    <label><input type="radio" name="metodo-pago" value="banco"> Transferencia IBAN</label>
+                    <label><input type="radio" name="metodo-pago" value="paypal"> PayPal</label>
+                </div>
+
+                <div id="pago-bizum-field">
+                    <input type="tel" id="chk-bizum" placeholder="Móvil Bizum (Ej: 600123456)" pattern="^[67]\d{8}$"
+                        title="El móvil debe empezar por 6 o 7 y tener un total de 9 cifras" required>
+                </div>
+                <div id="pago-banco-field" style="display: none;">
+                    <input type="text" id="chk-banco" placeholder="IBAN (9 a 24 caracteres alfanuméricos)"
+                        pattern="^[a-zA-Z0-9]{9,24}$" title="El IBAN / cuenta debe tener entre 9 y 24 números o letras">
+                </div>
+                <div id="pago-paypal-field" style="display: none;">
+                    <input type="email" id="chk-paypal" placeholder="Correo electrónico asociado a PayPal">
+                </div>
+
+                <button type="submit" class="btn-primary confirm-pay-btn">Confirmar y Pagar</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
