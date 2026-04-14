@@ -1,0 +1,900 @@
+/* --- ESTILOS SIMPLES DE PROGRAMADORA JUNIOR --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+    height: 100%;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Transiciones visuales suaves para profesionalidad */
+a, button, .card, .btn-primary, .news-card, .admin-container, .recurso-card, input, textarea {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Truco maestro para que iOS (iPhone/iPad), Android, PCs y Tablets muestren el fondo sin deformarse */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-image: url('../img/bg_educacion.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* Header simple y limpio */
+.site-header {
+    background-color: #ffffff;
+    border-bottom: 2px solid #6d28d9; /* Borde verde salvia */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Sombra muy sutil */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-main .logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #6d28d9;
+    text-decoration: none;
+    margin-right: 3rem;
+}
+
+.nav-main ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-main a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-main a:hover {
+    color: #6d28d9;
+}
+
+/* Subrayado morado leve para el enlace activo */
+.nav-main a.active-link {
+    border-bottom: 3px solid #e1bee7;
+    padding-bottom: 2px;
+    color: #6d28d9;
+}
+
+/* Enlace a administración bien diferenciado */
+.admin-nav-link {
+    background-color: #fdf5ff;
+    color: #6d28d9 !important;
+    font-weight: bold;
+    border: 1px dashed #c084fc;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.admin-nav-link:hover {
+    background-color: #f3e8ff;
+    border-style: solid;
+}
+
+/* Contenido Principal */
+.page-content {
+    min-height: calc(100vh - 200px);
+    padding: 3rem 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Cabecera Común Responsive */
+.page-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-top: 4px solid #6d28d9;
+}
+
+.page-header h1 {
+    color: #6d28d9;
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-header p {
+    font-size: 1.15rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .page-header h1 { font-size: 2.2rem; }
+    .page-header { padding: 2rem 1.5rem; }
+}
+@media (max-width: 480px) {
+    .page-header h1 { font-size: 1.8rem; }
+    .page-header { padding: 1.5rem 1rem; }
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    background: #ffffff;
+    padding: 3rem 2rem;
+    border-radius: 8px; /* Borde redondeado típico */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+    border-left: 5px solid #6d28d9;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+/* Botones principales */
+.btn-primary {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #6d28d9;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #4c1d95;
+    transform: translateY(-2px);
+}
+
+/* Servicios (Cartas) */
+.services-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    text-align: center;
+    border-top: 4px solid #6d28d9;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    flex-grow: 1;
+}
+
+/* Enfoque */
+.enfoque-section {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.enfoque-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.enfoque-section p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+/* Footer simple */
+.site-footer {
+    background-color: #ffffff;
+    color: #333;
+    padding: 3rem 1rem 1rem;
+    text-align: center;
+    border-top: 2px solid #6d28d9;
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.footer-content h3 {
+    margin-bottom: 1.5rem;
+}
+
+.footer-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-content input, .footer-content textarea {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+.footer-bottom {
+    font-size: 0.8rem;
+    color: #777;
+    border-top: 1px solid #eaeaea;
+    padding-top: 1rem;
+}
+
+/* --- ESTILOS DEL CARRITO (JUNIOR DEV) --- */
+.cart-nav-item .badge {
+    background-color: #e07a5f; /* Color salmón para el badge que destaque */
+    color: white;
+    border-radius: 50%;
+    padding: 2px 8px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente simple */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.modal-content h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #333;
+    border-bottom: 2px solid #6d28d9;
+    padding-bottom: 0.5rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    color: #999;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.remove-btn {
+    background: #ff6b6b;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.remove-btn:hover {
+    background: #fa5252;
+}
+
+.cart-total {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+#checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#checkout-form input, #checkout-form textarea {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fdfdfd;
+}
+
+#checkout-btn {
+    width: 100%;
+}
+
+/* --- TOAST NOTIFICATIONS --- */
+#toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+.toast {
+    background-color: #333;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideInToast 0.3s forwards, fadeOutToast 0.3s forwards 2.7s;
+}
+
+.toast.success { background-color: #6d28d9; color: #fff; font-weight: bold; }
+.toast.error { background-color: #ff6b6b; color: white; }
+
+@keyframes slideInToast {
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeOutToast {
+    to { opacity: 0; transform: translateY(-10px); }
+}
+
+/* --- MENU HAMBURGUESA GLOBAL --- */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: #6d28d9;
+    cursor: pointer;
+}
+
+/* --- RESPONSIVE DESIGN (Media Queries) --- */
+@media (max-width: 768px) {
+    /* Navbar ajustado para modo hamburguesa */
+    .menu-toggle {
+        display: block; /* Solo visible en móvil */
+    }
+    
+    .nav-main {
+        flex-wrap: wrap; /* Permite que el ul baje de línea */
+        padding: 1rem;
+    }
+    
+    .nav-main ul {
+        display: none; /* Oculto por defecto en móvil */
+        width: 100%;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #eaeaea;
+    }
+    
+    .nav-main ul.active {
+        display: flex; /* Se muestra al abrir el menú */
+    }
+    
+    /* Hero y páginas con padding más pequeño */
+    .hero {
+        padding: 2rem 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .page-content {
+        padding: 1.5rem 1rem;
+    }
+    
+    /* Modal del carrito y checkout que no roce los bordes */
+    .modal-content {
+        padding: 1.5rem;
+        width: 95%;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    /* Reducir espacio en las cartas móviles */
+    .service-cards {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Dispositivos muy pequeños */
+    .nav-main .logo {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    
+    .nav-main a {
+        font-size: 0.9rem;
+    }
+    
+    /* Prevenir auto-zoom de iOS en inputs */
+    #checkout-form input, #checkout-form textarea {
+        font-size: 16px; 
+    }
+}
+
+/* --- ESTILOS EXTRAÍDOS DE INDEX.HTML (API Y CHECKOUT) --- */
+.api-section {
+    text-align: center;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fdf5ff;
+    border-radius: 10px;
+    max-width: 800px;
+    border: 1px solid #e1bee7;
+}
+
+.api-title {
+    color: #6d28d9;
+    margin-bottom: 10px;
+}
+
+.api-subtitle {
+    color: #444;
+}
+
+.api-content-container {
+    margin-top: 1rem;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.api-quote-box {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #333;
+}
+
+.api-quote-author {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: #6d28d9;
+    text-align: right;
+    font-style: normal;
+}
+
+.api-btn {
+    margin-top: 1.5rem;
+    background-color: #6d28d9;
+}
+
+.cart-invoice-details {
+    margin-top: 15px;
+    border-top: 1px dashed #ccc;
+    padding-top: 10px;
+}
+
+.invoice-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.cart-total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.payment-info-title {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.payment-radios-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.confirm-pay-btn {
+    margin-top: 1rem;
+}
+
+/* Estilos extraídos de script.js */
+.cart-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.cart-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-item-title {
+    font-weight: bold;
+}
+
+.cart-item-qty {
+    color: #6d28d9;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.qty-adj-btn {
+    border: none;
+    background: #e1bee7;
+    color: #4c1d95;
+    padding: 2px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.qty-adj-btn:hover {
+    background: #c084fc;
+    color: white;
+}
+
+.cart-item-remove-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-item-details {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 5px;
+}
+
+.cart-item-base {
+    flex: 1;
+}
+
+.cart-item-iva {
+    flex: 1;
+    text-align: center;
+}
+
+.cart-item-total {
+    flex: 1;
+    text-align: right;
+    color: #000;
+    font-weight: bold;
+}
+
+/* --- ESTILOS EXTRAÍDOS DE ADMIN.HTML --- */
+.admin-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.loader-container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+th, td { 
+    padding: 1rem; 
+    text-align: left; 
+    border-bottom: 1px solid #eee; 
+}
+
+th { 
+    background: #8fc1a9; 
+    color: white; 
+}
+
+.badge { 
+    padding: 4px 8px; 
+    border-radius: 12px; 
+    font-size: 0.8rem; 
+    font-weight: bold; 
+}
+
+.bg-pendiente { 
+    background: #ffcc00; 
+    color: #333; 
+}
+
+.bg-pagado { 
+    background: #4caf50; 
+    color: white; 
+}
+
+.action-btn { 
+    margin-right: 5px; 
+    padding: 5px 10px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    color: white; 
+}
+
+.btn-pagar { background: #8fc1a9; }
+.btn-borrar { background: #ff6b6b; }
+.btn-logout { 
+    background: #666; 
+    color: white; 
+    padding: 0.5rem 1rem; 
+    text-decoration: none; 
+    border-radius: 4px; 
+}
+
+/* --- ESTILOS EXTRAÍDOS DE LOGIN.HTML --- */
+.login-container {
+    max-width: 400px;
+    margin: 5rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-top: 4px solid #8fc1a9;
+    text-align: center;
+}
+
+.login-container h2 { 
+    margin-bottom: 2rem; 
+    color: #333; 
+}
+
+.login-form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 1rem; 
+}
+
+.login-form input { 
+    padding: 0.8rem; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+
+.login-form input:focus { 
+    outline: none; 
+    border-color: #8fc1a9; 
+}
+
+.error-text {
+    color: red;
+    margin-top: 1rem;
+}
+
+/* --- ESTILOS EXTRAÍDOS DE SERVICIOS.HTML --- */
+.card-action-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.qty-input {
+    width: 60px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.flex-btn {
+    flex: 1;
+}
+
+/* --- ESTILOS DEL BLOG (RODANDO POR LA ACTUALIDAD) --- */
+.blog-header-section {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(135deg, #f3e8ff, #e1bee7);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.blog-main-title {
+    font-size: 2.5rem;
+    color: #4c1d95;
+    margin-bottom: 0.5rem;
+}
+
+.blog-subtitle {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.news-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-top: 4px solid #4c1d95;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.news-card h3 a {
+    color: #333;
+    text-decoration: none;
+}
+
+.news-card h3 a:hover {
+    color: #8fc1a9;
+}
+
+.news-card .news-date {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 1rem;
+}
+
+.news-card p {
+    color: #555;
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.news-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    align-self: flex-start;
+    text-decoration: none;
+    background: #8fc1a9;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.read-more:hover {
+    background: #609b78;
+}
