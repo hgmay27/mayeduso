@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MayEduso | Terapia socioeducativa</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="nav-main">
+            <a href="index.html" class="logo">MayEduso</a>
+            <button class="menu-toggle" id="menu-toggle-enfoque" aria-label="Abrir menú">☰</button>
+            <ul id="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="enfoque.html">Enfoque</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="admin.html" class="admin-nav-link">Administración</a></li>
+                <li class="cart-nav-item"><a href="#" id="cart-icon-btn">🛒 <span id="cart-count" class="badge">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <div class="page-header">
+            <h1>Mi Enfoque</h1>
+            <p>Transformar realidades, no imponer moldes. Descubre cómo trabajo desde la base del poder personal.</p>
+        </div>
+        <section class="enfoque-section">
+            <p>✨ Transformar realidades, no imponer moldes.
+                Mi trabajo como educadora social no parte del deber ser, sino del poder ser. Acompaño procesos donde las
+                mujeres, adolescentes y personas con discapacidad dejan de verse como destinatarias de ayuda y se
+                reconocen como protagonistas de su propia historia.</p>
+
+                <p>🧭 No guío, camino al lado.
+                Mi enfoque se basa en el respeto, la escucha activa y la creación de espacios seguros donde cada persona
+                pueda construir su voz, tomar decisiones y desafiar los límites que la sociedad intenta imponerles.</p>
+
+                <p>🌱 Porque empoderar no es dar poder, es despertarlo.
+                Trabajo desde una mirada interseccional, feminista y basada en derechos, convencida de que el cambio
+                social comienza cuando entendemos que la diversidad no es un problema que resolver, sino una riqueza que
+                celebrar.</p>
+
+                <p>🚀 Educación social con propósito.
+                Empoderamiento con alma.
+                Transformación con sentido.</p>
+
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <h3 style="color: var(--primary-color, #ff6b6b); margin-bottom: 1rem;">MayEduso</h3>
+            <p style="color: #666; margin-bottom: 1.5rem;">Acompañamiento integral, terapia socioeducativa y empoderamiento personal. Contigo en cada paso del camino.</p>
+            <div class="footer-links" style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem;">
+                <a href="index.html" style="color: var(--text-color, #333); text-decoration: none; font-weight: bold;">Inicio</a>
+                <a href="servicios.html" style="color: var(--text-color, #333); text-decoration: none; font-weight: bold;">Servicios</a>
+                <a href="recursos.html" style="color: var(--text-color, #333); text-decoration: none; font-weight: bold;">Recursos</a>
+                <a href="contacto.html" style="color: var(--text-color, #333); text-decoration: none; font-weight: bold;">Contacto</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; <span id="current-year"></span> MayEduso. Todos los derechos reservados.
+        </div>
+    </footer>
+    <!-- Modal del carrito -->
+    <div id="cart-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" id="close-cart">&times;</span>
+            <h2>Tu carrito</h2>
+            <div id="cart-items"></div>
+            <div id="cart-invoice-details" class="cart-invoice-details" style="display: none;">
+                <div class="invoice-row">
+                    <span>Base Imponible:</span>
+                    <span><span id="cart-subtotal">0.00</span>€</span>
+                </div>
+                <div class="invoice-row">
+                    <span>IVA (21%):</span>
+                    <span><span id="cart-iva">0.00</span>€</span>
+                </div>
+            </div>
+            <div class="cart-total-row">
+                <span>Total:</span>
+                <span><span id="cart-total-price">0.00</span>€</span>
+            </div>
+            <button id="checkout-btn" class="btn-primary">Comprar</button>
+        </div>
+    </div>
+
+    <!-- Modal de Checkout -->
+    <div id="checkout-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" id="close-checkout">&times;</span>
+            <h2>Datos del cliente</h2>
+            <form id="checkout-form">
+                <input type="text" id="chk-nombre" placeholder="Nombre" required minlength="2" pattern="^[A-Za-zÁÉÍÓÚáéíóúñÑüÜ\s]+$" title="Solo se permiten letras y espacios">
+                <input type="text" id="chk-apellidos" placeholder="Apellidos" required minlength="2" pattern="^[A-Za-zÁÉÍÓÚáéíóúñÑüÜ\s]+$" title="Solo se permiten letras y espacios">
+                <input type="number" id="chk-edad" placeholder="Edad" required min="18" max="100" title="Debes ser mayor de edad">
+                <input type="email" id="chk-email" placeholder="Correo electrónico" required>
+                <textarea id="chk-comentarios" placeholder="Comentarios adicionales..."></textarea>
+                
+                <h3 class="payment-info-title">Forma de pago</h3>
+                <div class="payment-radios-container" id="pago-radios">
+                    <label><input type="radio" name="metodo-pago" value="tarjeta"> Tarjeta Crédito/Débito</label>
+                    <label><input type="radio" name="metodo-pago" value="bizum" checked> Bizum</label>
+                    <label><input type="radio" name="metodo-pago" value="banco"> Domiciliación bancaria</label>
+                    <label><input type="radio" name="metodo-pago" value="paypal"> PayPal</label>
+                </div>
+                
+                <div id="pago-bizum-field">
+                    <p class="payment-hint" style="font-size: 0.9rem; color: var(--text-color, #666); margin-bottom: 0.5rem;">Introduce tu móvil para enviarte una solicitud de pago vía Bizum.</p>
+                    <input type="tel" id="chk-bizum" placeholder="Móvil Bizum (Ej: 600123456)" pattern="^[67]\d{8}$" title="El móvil debe empezar por 6 o 7 y tener un total de 9 cifras" required>
+                </div>
+                <div id="pago-tarjeta-field" style="display: none;">
+                    <p class="payment-hint" style="font-size: 0.9rem; color: var(--text-color, #666); margin-bottom: 0.5rem;">Introduce los datos de tu tarjeta.</p>
+                    <input type="text" id="chk-tarjeta-num" placeholder="Número de Tarjeta (16 dígitos sin espacios)" pattern="^\d{16}$" title="16 dígitos numéricos">
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" id="chk-tarjeta-cad" placeholder="MM/AA" pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$" title="Mes/Año (MM/AA)" style="flex: 1;">
+                        <input type="text" id="chk-tarjeta-cvv" placeholder="CVV" pattern="^\d{3,4}$" title="3 o 4 dígitos" style="flex: 1;">
+                    </div>
+                </div>
+                <div id="pago-banco-field" style="display: none;">
+                    <p class="payment-hint" style="font-size: 0.9rem; color: var(--text-color, #666); margin-bottom: 0.5rem;">Introduce tu IBAN para poder hacer una domiciliación bancaria.</p>
+                    <input type="text" id="chk-banco-nombre" placeholder="Nombre" pattern="^[A-Za-zÁÉÍÓÚáéíóúñÑüÜ\s]+$" title="Solo letras">
+                    <input type="text" id="chk-banco-apellidos" placeholder="Apellidos" pattern="^[A-Za-zÁÉÍÓÚáéíóúñÑüÜ\s]+$" title="Solo letras">
+                    <input type="text" id="chk-banco" placeholder="IBAN (9 a 24 caracteres alfanuméricos)" pattern="^[a-zA-Z0-9]{9,24}$" title="El IBAN / cuenta debe tener entre 9 y 24 números o letras">
+                </div>
+                <div id="pago-paypal-field" style="display: none;">
+                    <p class="payment-hint" style="font-size: 0.9rem; color: var(--text-color, #666); margin-bottom: 0.5rem;">Introduce tu correo de PayPal para enviarte una solicitud de pago.</p>
+                    <input type="email" id="chk-paypal" placeholder="Correo electrónico asociado a PayPal">
+                </div>
+
+                <button type="submit" class="btn-primary confirm-pay-btn">Confirmar y Pagar</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
